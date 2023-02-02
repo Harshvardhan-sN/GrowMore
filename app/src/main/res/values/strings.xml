@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Grow More</string>
+
+    <string name="image_contentDescription">image</string>
+    <string name="let_s_get_started_text">Let\'s Get started</string>
+    <string name="intro_text_description">Collaborate and Plan Together Across Multiple Devices on Projemanag’s Minimalist Interface.</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="sign_up_tv_detail">Enter your name, email.id and password to register with us</string>
+    <string name="sign_in_tv_detail">Enter your name and password to login</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="please_wait">Please Wait</string>
+    <string name="my_profile">My Profile</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="mobile_number">Mobile</string>
+    <string name="update">UPDATE</string>
+    <string name="create">CREATE</string>
+    <string name="board_name">Board Name</string>
+</resources>

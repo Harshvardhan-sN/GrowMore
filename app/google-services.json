@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "353022296623",
+    "project_id": "growmore-378a5",
+    "storage_bucket": "growmore-378a5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353022296623:android:e0332bcebe66b9d0747cda",
+        "android_client_info": {
+          "package_name": "my.project.growmore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "353022296623-nphv4qflsl0nruc78deqjuo9oamiif0h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1p28a86r1R-Vpc62oNI6-vuraKAugu3U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "353022296623-nphv4qflsl0nruc78deqjuo9oamiif0h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
