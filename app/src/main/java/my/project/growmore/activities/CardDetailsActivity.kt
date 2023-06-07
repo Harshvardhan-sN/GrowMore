@@ -2,6 +2,7 @@ package my.project.growmore.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import my.project.growmore.R
 import my.project.growmore.databinding.ActivityCardDetailsBinding
 import my.project.growmore.models.Board
@@ -20,9 +21,17 @@ class CardDetailsActivity : AppCompatActivity() {
         getIntentData()
         setUpActionBar()
 
+        binding?.etNameCardDetails?.setText(mBoardDetails.taskList[mTaskListPosition].cards[mCardPosition].name)
+
+
+
     }
 
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_delete_card, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
     private fun getIntentData() {
         if(intent.hasExtra(Constants.BOARD_DETAIL)) {
             mBoardDetails = intent.getParcelableExtra(Constants.BOARD_DETAIL)!!
