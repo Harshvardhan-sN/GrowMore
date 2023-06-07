@@ -127,5 +127,6 @@
     <dimen name="item_selected_member_image_size">45dp</dimen>
 
     <dimen name="My_Profile_Activity_Picture_Size">100dp</dimen>
+    <dimen name="et_text_size">18sp</dimen>
 
 </resources>

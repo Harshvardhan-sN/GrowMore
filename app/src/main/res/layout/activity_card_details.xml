@@ -23,7 +23,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/ic_background"
         android:orientation="vertical"
         android:padding="@dimen/card_details_content_padding">
 
@@ -75,7 +74,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/label_color"
-                    android:textColor="@color/secondary_text_color"
+                    android:textColor="@color/l4"
                     android:textSize="@dimen/card_details_label_text_size" />
 
                 <TextView
@@ -85,14 +84,14 @@
                     android:layout_marginTop="@dimen/card_details_value_marginTop"
                     android:padding="@dimen/card_details_value_padding"
                     android:text="@string/select_color"
-                    android:textColor="@color/primary_text_color" />
+                    android:textColor="@color/l1" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/card_details_members_label_marginTop"
                     android:text="@string/members"
-                    android:textColor="@color/secondary_text_color"
+                    android:textColor="@color/l4"
                     android:textSize="@dimen/card_details_label_text_size" />
 
                 <TextView
@@ -102,7 +101,7 @@
                     android:layout_marginTop="@dimen/card_details_value_marginTop"
                     android:padding="@dimen/card_details_value_padding"
                     android:text="@string/select_members"
-                    android:textColor="@color/primary_text_color"
+                    android:textColor="@color/l1"
                     android:visibility="visible"
                     tools:visibility="gone" />
 
@@ -119,7 +118,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/card_details_members_label_marginTop"
                     android:text="@string/due_date"
-                    android:textColor="@color/secondary_text_color"
+                    android:textColor="@color/l4"
                     android:textSize="@dimen/card_details_label_text_size" />
 
                 <TextView
@@ -129,7 +128,7 @@
                     android:layout_marginTop="@dimen/card_details_value_marginTop"
                     android:padding="@dimen/card_details_value_padding"
                     android:text="@string/select_due_date"
-                    android:textColor="@color/primary_text_color" />
+                    android:textColor="@color/l1" />
 
                 <Button
                     android:id="@+id/btn_update_card_details"

@@ -86,7 +86,7 @@ class MembersActivity : BaseActivity() {
             dialog.dismiss()
         }
         dialogBinding.btnOk.setOnClickListener {
-            val email = dialogBinding.etEmail.text.toString()
+            val email = dialogBinding.etEmail.text.toString().trim{ it<=' '}.toLowerCase()
             if(email.isNotEmpty() and email.isNotBlank()) {
                 dialog.dismiss()
                 showProgressDialog(resources.getString(R.string.please_wait))
@@ -111,15 +111,6 @@ class MembersActivity : BaseActivity() {
         mAssignedMembersList.add(user)
         anyChangesMade = true
         setUpMemberList(mAssignedMembersList)
-    }
-
-    fun showErrorInMemberActivity(errorMessage: String) {
-        setUpMemberList(mAssignedMembersList)
-        val rootView: View = findViewById(android.R.id.content)
-        runOnUiThread {
-            val snackBar = Snackbar.make(rootView, errorMessage, Snackbar.LENGTH_SHORT)
-            snackBar.show()
-        }
     }
 
     override fun onDestroy() {

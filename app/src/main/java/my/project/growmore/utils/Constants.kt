@@ -32,6 +32,8 @@ object Constants {
     const val BOARD_DETAIL: String = "boardDetail"
     const val ID: String = "id"
     const val EMAIL: String = "email"
+    const val TASK_LIST_ITEM_POSITION = "taskListItemPosition"
+    const val CARD_LIST_ITEM_POSITION = "cardListItemPosition"
     fun getFileExtension(activity: Activity ,uri: Uri?): String?{
         return MimeTypeMap.getSingleton().
         getExtensionFromMimeType(activity.contentResolver.getType(uri!!))

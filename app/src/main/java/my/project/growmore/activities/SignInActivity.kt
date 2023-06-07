@@ -41,7 +41,7 @@ class SignInActivity : BaseActivity() {
     private fun signInAuth(){
         val okCredentials = validateForm()
         if(okCredentials.isBlank()){
-            val email = binding?.emailSignInMain?.text.toString().trim{ it<=' '}
+            val email = binding?.emailSignInMain?.text.toString().trim{ it<=' '}.toLowerCase()
             val password = binding?.passwordSignInMain?.text.toString().trim{ it<=' '}
             //showCustomProgressDialog(resources.getString(R.string.please_wait))
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).addOnCompleteListener{ task ->

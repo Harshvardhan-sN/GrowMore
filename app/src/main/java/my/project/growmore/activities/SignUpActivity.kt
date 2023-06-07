@@ -10,6 +10,7 @@ import my.project.growmore.R
 import my.project.growmore.databinding.ActivitySignUpBinding
 import my.project.growmore.firebase.FireStoreClass
 import my.project.growmore.models.User
+import java.util.Locale
 
 class SignUpActivity : BaseActivity() {
     private var binding: ActivitySignUpBinding? = null
@@ -44,9 +45,8 @@ class SignUpActivity : BaseActivity() {
         val okCredentials = validateForm()
         if(okCredentials.isBlank()){
             val name = binding?.signUpName?.text.toString().trim{ it<=' '}
-            val email = binding?.signUpEmail?.text.toString().trim{ it<=' '}
+            val email = binding?.signUpEmail?.text.toString().trim{ it<=' '}.toLowerCase()
             val password = binding?.signUpPassword?.text.toString().trim{ it<=' '}
-
             //showCustomProgressDialog(resources.getString(R.string.please_wait))
             FirebaseAuth.getInstance()
                     .createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->

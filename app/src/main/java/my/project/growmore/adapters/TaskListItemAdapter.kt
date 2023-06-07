@@ -113,6 +113,16 @@ open class TaskListItemAdapter(private val context: Context,
 
         val adapter = CardListItemsAdapter(context, model.cards)
         holder.rvCardList.adapter = adapter
+
+        adapter.setOnClickListener(
+            object: CardListItemsAdapter.OnClickListener {
+                override fun onClick(cardPosition: Int) {
+                    if(context is TaskListActivity) {
+                        context.cardDetails(holder.adapterPosition, cardPosition)
+                    }
+                }
+            }
+        )
     }
 
     private fun alertDialogForDeleteList(position: Int, title: String) {
