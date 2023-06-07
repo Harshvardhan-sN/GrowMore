@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.SignInActivity"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/customToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        app:titleTextColor="@color/white"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_in_tv_detail"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textColor="@color/text_color"
+        android:layout_marginTop="@dimen/marginTopSignUp"
+        android:layout_marginStart="@dimen/marginSignUpScreen"
+        android:layout_marginEnd="@dimen/marginSignUpScreen"
+        android:layout_marginBottom="45dp"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/card_view_corner_radius"
+        app:cardElevation="@dimen/card_view_elevation"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:padding="10dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            >
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/email_sign_in_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/email"
+                android:layout_marginEnd="10dp"
+                android:inputType="textCapWords"
+                android:layout_marginStart="10dp"
+                android:textSize="16sp"
+                android:textColor="@color/l1"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleDrawable="@drawable/password_icon_selector"
+            app:passwordToggleTint="@color/l1">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/password_sign_in_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/l1"
+                android:textSize="16sp"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="25dp"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/btnSignInMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/btn_paddingTopBottom"
+            android:paddingBottom="@dimen/btn_paddingTopBottom"
+            android:layout_marginStart="@dimen/intro_text_marginStartEnd"
+            android:layout_marginEnd="@dimen/intro_text_marginStartEnd"
+            android:background="@drawable/rounded_btn_signup_screen"
+            android:foreground="?attr/selectableItemBackground">
+            <TextView
+                android:id="@+id/btn_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sign_in"
+                android:gravity="center"
+                android:textSize="@dimen/btn_text_size"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/btn_marginStartEnd"
+                android:layout_marginEnd="@dimen/btn_marginStartEnd"
+                />
+            <ProgressBar
+                android:id="@+id/btn_progressBar"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                />
+        </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
