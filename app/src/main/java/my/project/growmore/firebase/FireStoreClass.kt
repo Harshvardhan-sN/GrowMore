@@ -10,6 +10,7 @@ import com.google.firebase.firestore.SetOptions
 import my.project.growmore.R
 import my.project.growmore.activities.*
 import my.project.growmore.models.Board
+import my.project.growmore.models.Card
 import my.project.growmore.models.User
 import my.project.growmore.utils.Constants
 
@@ -74,7 +75,7 @@ class FireStoreClass: BaseActivity() {
             }
     }
 
-    fun addUpdateTaskList(activity: TaskListActivity, board: Board){
+    fun addUpdateTaskList(activity: Activity, board: Board){
         val taskListHashMap = HashMap<String, Any>()
         taskListHashMap[Constants.TASK_LIST] = board.taskList
 
@@ -82,9 +83,15 @@ class FireStoreClass: BaseActivity() {
             .document(board.documentId)
             .update(taskListHashMap)
             .addOnSuccessListener{
-                activity.addUpdateTaskListSuccess()
-            }.addOnSuccessListener {
-                activity.hideProgressDialog()
+                if(activity is TaskListActivity)
+                    activity.addUpdateTaskListSuccess()
+                else if (activity is CardDetailsActivity)
+                    activity.addUpdateTaskListSuccess()
+            }.addOnFailureListener {
+                if(activity is TaskListActivity)
+                    activity.hideProgressDialog()
+                else if(activity is CardDetailsActivity)
+                    activity.hideProgressDialog()
             }
     }
     fun getCurrentUUID(): String{

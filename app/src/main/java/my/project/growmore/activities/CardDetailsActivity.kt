@@ -1,14 +1,21 @@
 package my.project.growmore.activities
 
+import android.app.Activity
+import android.app.AlertDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import my.project.growmore.R
 import my.project.growmore.databinding.ActivityCardDetailsBinding
+import my.project.growmore.firebase.FireStoreClass
 import my.project.growmore.models.Board
+import my.project.growmore.models.Card
+import my.project.growmore.models.Task
 import my.project.growmore.utils.Constants
 
-class CardDetailsActivity : AppCompatActivity() {
+class CardDetailsActivity : BaseActivity() {
     private var binding: ActivityCardDetailsBinding? = null
 
     private lateinit var mBoardDetails: Board
@@ -22,8 +29,14 @@ class CardDetailsActivity : AppCompatActivity() {
         setUpActionBar()
 
         binding?.etNameCardDetails?.setText(mBoardDetails.taskList[mTaskListPosition].cards[mCardPosition].name)
-
-
+        binding?.btnUpdateCardDetails?.setOnClickListener {
+            if(binding?.etNameCardDetails?.text?.isNotBlank()!! &&
+                binding?.etNameCardDetails?.text?.isNotEmpty()!!) {
+                updateCardDetails()
+            } else {
+                showToast("Please enter a card name.", this@CardDetailsActivity)
+            }
+        }
 
     }
 
@@ -31,6 +44,16 @@ class CardDetailsActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_delete_card, menu)
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.action_del_card -> {
+                alertDialogForDeleteCard(mBoardDetails.taskList[mTaskListPosition].cards[mCardPosition].name)
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
     private fun getIntentData() {
         if(intent.hasExtra(Constants.BOARD_DETAIL)) {
@@ -58,5 +81,56 @@ class CardDetailsActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         binding = null
+    }
+
+    fun addUpdateTaskListSuccess() {
+        hideProgressDialog()
+
+        setResult(Activity.RESULT_OK)
+        finish()
+    }
+
+    private fun updateCardDetails() {
+        val card = Card(
+            binding?.etNameCardDetails?.text?.toString()!!,
+            mBoardDetails.taskList[mTaskListPosition].cards[mCardPosition].createdBy,
+            mBoardDetails.taskList[mTaskListPosition].cards[mCardPosition].assignedTo
+        )
+        mBoardDetails.taskList[mTaskListPosition].cards[mCardPosition] = card
+
+        showProgressDialog(resources.getString(R.string.please_wait))
+        FireStoreClass().addUpdateTaskList(this@CardDetailsActivity, mBoardDetails)
+    }
+
+    private fun deleteCard() {
+        val cardList: ArrayList<Card> = mBoardDetails
+            .taskList[mTaskListPosition].cards
+        cardList.removeAt(mCardPosition)
+
+        val taskList: ArrayList<Task> = mBoardDetails.taskList
+        taskList.removeAt(taskList.size - 1)
+
+        taskList[mTaskListPosition].cards = cardList
+
+        showProgressDialog(resources.getString(R.string.please_wait))
+        FireStoreClass().addUpdateTaskList(this@CardDetailsActivity, mBoardDetails)
+    }
+
+
+    private fun alertDialogForDeleteCard(title: String) {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Alert")
+        builder.setMessage("Are you sure you want to delete card $title ?")
+        builder.setIcon(android.R.drawable.ic_dialog_alert)
+        builder.setPositiveButton("Yes") { dialogInterface, _ ->
+            dialogInterface.dismiss()
+            deleteCard()
+        }
+        builder.setNegativeButton("No") { dialogInterface, _ ->
+            dialogInterface.dismiss()
+        }
+        val alertDialog: AlertDialog = builder.create()
+        alertDialog.setCancelable(false)
+        alertDialog.show()
     }
 }
