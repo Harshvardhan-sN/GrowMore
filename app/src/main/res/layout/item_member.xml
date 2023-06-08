@@ -61,6 +61,7 @@
     </LinearLayout>
 
     <View
+        android:id="@+id/itemMemberView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_member_divider_height"
         android:layout_marginTop="@dimen/item_member_divider_marginTop"

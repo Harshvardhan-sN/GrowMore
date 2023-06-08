@@ -10,13 +10,13 @@ import my.project.growmore.databinding.ItemBoardBinding
 import my.project.growmore.models.Board
 
 open class BoardItemsAdapter(private val context: Context,
-                private var list: ArrayList<Board>):
+                             private var list: ArrayList<Board>):
     RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
     private var onClickListener: OnClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-return MyViewHolder(ItemBoardBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return MyViewHolder(ItemBoardBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     override fun getItemCount(): Int {

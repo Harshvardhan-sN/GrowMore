@@ -10,6 +10,7 @@ import android.view.Menu
 import android.view.MenuItem
 import my.project.growmore.R
 import my.project.growmore.databinding.ActivityCardDetailsBinding
+import my.project.growmore.dialogs.ItemAddMemberDialog
 import my.project.growmore.dialogs.LabelColorListDialog
 import my.project.growmore.firebase.FireStoreClass
 import my.project.growmore.models.Board
@@ -48,6 +49,9 @@ class CardDetailsActivity : BaseActivity() {
         }
         binding?.tvSelectLabelColor?.setOnClickListener {
             labelColorListDialog()
+        }
+        binding?.tvSelectMembers?.setOnClickListener {
+            itemAddMemberListDialog()
         }
     }
 
@@ -180,6 +184,33 @@ class CardDetailsActivity : BaseActivity() {
                 setColor()
             }
 
+        }
+        listDialog.show()
+    }
+
+    private fun itemAddMemberListDialog() {
+        var cardAssignedMemberList = mBoardDetails.taskList[mTaskListPosition].cards[mCardPosition].assignedTo
+        if(cardAssignedMemberList.size > 0) {
+            for(i in mMembersDetailedList.indices) {
+                for(j in cardAssignedMemberList) {
+                    if(mMembersDetailedList[i].id == j) {
+                        mMembersDetailedList[i].selected = true
+                    }
+                }
+            }
+        } else {
+            for(i in mMembersDetailedList) {
+                i.selected = false
+            }
+        }
+
+        val listDialog = object : ItemAddMemberDialog(
+            this@CardDetailsActivity,
+            mMembersDetailedList,
+            resources.getString(R.string.str_select_member)) {
+            override fun onItemSelected(user: User, action: String) {
+                // TODO implement selected Member Functionality
+            }
         }
         listDialog.show()
     }
