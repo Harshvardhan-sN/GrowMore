@@ -14,12 +14,15 @@ import my.project.growmore.firebase.FireStoreClass
 import my.project.growmore.models.Board
 import my.project.growmore.models.Card
 import my.project.growmore.models.Task
+import my.project.growmore.models.User
 import my.project.growmore.utils.Constants
+import org.w3c.dom.ls.LSInput
 
 class TaskListActivity : BaseActivity() {
     private var binding: ActivityTaskListBinding? = null
     private lateinit var mBoardDetails: Board
     private lateinit var mBoardDocumentID: String
+    private lateinit var mAssignedMembersDetailList: ArrayList<User>
 
     companion object {
         const val MEMBERS_REQ_CODE: Int = 13
@@ -50,15 +53,23 @@ class TaskListActivity : BaseActivity() {
 
     fun boardDetails(board: Board){
         mBoardDetails = board
+
         setUpActionBar()
         hideProgressDialog()
+
         val addTaskList = Task(resources.getString(R.string.add_list))
         board.taskList.add(addTaskList)
+
         binding?.rvTaskList?.layoutManager = LinearLayoutManager(
             this, LinearLayoutManager.HORIZONTAL, false)
         binding?.rvTaskList?.setHasFixedSize(true)
         val adapter = TaskListItemAdapter(this, board.taskList)
         binding?.rvTaskList?.adapter = adapter
+
+        showProgressDialog(resources.getString(R.string.please_wait))
+        FireStoreClass().getAssignedMemberListDetails(
+            this@TaskListActivity, mBoardDetails.assignedTo)
+
     }
 
     private fun setUpActionBar() {
@@ -123,6 +134,7 @@ class TaskListActivity : BaseActivity() {
         intent.putExtra(Constants.BOARD_DETAIL, mBoardDetails)
         intent.putExtra(Constants.TASK_LIST_ITEM_POSITION, taskListPosition)
         intent.putExtra(Constants.CARD_LIST_ITEM_POSITION, cardPosition)
+        intent.putExtra(Constants.BOARD_MEMBERS_LIST, mAssignedMembersDetailList)
         startActivityForResult(intent, CARD_DETAIL_REQ_CODE)
     }
 
@@ -141,6 +153,11 @@ class TaskListActivity : BaseActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    fun boardMemberDetailedList(list: ArrayList<User>) {
+        mAssignedMembersDetailList = list
+        hideProgressDialog()
     }
 
     override fun onDestroy() {

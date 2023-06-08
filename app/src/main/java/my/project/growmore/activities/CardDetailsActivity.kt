@@ -15,6 +15,7 @@ import my.project.growmore.firebase.FireStoreClass
 import my.project.growmore.models.Board
 import my.project.growmore.models.Card
 import my.project.growmore.models.Task
+import my.project.growmore.models.User
 import my.project.growmore.utils.Constants
 
 class CardDetailsActivity : BaseActivity() {
@@ -24,6 +25,7 @@ class CardDetailsActivity : BaseActivity() {
     private var mTaskListPosition = -1
     private var mCardPosition = -1
     private var mSelectedColor = ""
+    private lateinit var mMembersDetailedList: ArrayList<User>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCardDetailsBinding.inflate(layoutInflater)
@@ -32,6 +34,10 @@ class CardDetailsActivity : BaseActivity() {
         setUpActionBar()
 
         binding?.etNameCardDetails?.setText(mBoardDetails.taskList[mTaskListPosition].cards[mCardPosition].name)
+
+        mSelectedColor = mBoardDetails.taskList[mTaskListPosition].cards[mCardPosition].labelColor
+        if(mSelectedColor.isNotEmpty())
+            setColor()
         binding?.btnUpdateCardDetails?.setOnClickListener {
             if(binding?.etNameCardDetails?.text?.isNotBlank()!! &&
                 binding?.etNameCardDetails?.text?.isNotEmpty()!!) {
@@ -62,7 +68,8 @@ class CardDetailsActivity : BaseActivity() {
     }
     private fun getIntentData() {
         if(intent.hasExtra(Constants.BOARD_DETAIL)) {
-            mBoardDetails = intent.getParcelableExtra(Constants.BOARD_DETAIL)!!
+            mBoardDetails = intent.getParcelableExtra(
+                Constants.BOARD_DETAIL)!!
         }
         if(intent.hasExtra(Constants.TASK_LIST_ITEM_POSITION)) {
             mTaskListPosition = intent.getIntExtra(
@@ -71,6 +78,10 @@ class CardDetailsActivity : BaseActivity() {
         if(intent.hasExtra(Constants.CARD_LIST_ITEM_POSITION)) {
             mCardPosition = intent.getIntExtra(
                 Constants.CARD_LIST_ITEM_POSITION, -1)
+        }
+        if(intent.hasExtra(Constants.BOARD_MEMBERS_LIST)) {
+            mMembersDetailedList = intent.getParcelableArrayListExtra(
+                Constants.BOARD_MEMBERS_LIST)!!
         }
     }
     private fun setUpActionBar() {
@@ -162,11 +173,13 @@ class CardDetailsActivity : BaseActivity() {
         val listDialog = object : LabelColorListDialog(
             this,
             colorsList,
-            resources.getString(R.string.str_select_label_color)) {
+            resources.getString(R.string.str_select_label_color),
+            mSelectedColor) {
             override fun onItemSelected(color: String) {
                 mSelectedColor = color
                 setColor()
             }
+
         }
         listDialog.show()
     }

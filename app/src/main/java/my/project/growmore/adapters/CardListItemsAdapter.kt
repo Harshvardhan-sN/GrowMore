@@ -1,7 +1,9 @@
 package my.project.growmore.adapters
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
+import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -26,8 +28,14 @@ open class CardListItemsAdapter(
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val model = list[position]
         if(holder is MyViewHolder){
-            holder.tvCardName.text = model.name
+            if(model.labelColor.isNotEmpty()) {
+                holder.labelColor.visibility = View.VISIBLE
+                holder.labelColor.setBackgroundColor(Color.parseColor(model.labelColor))
+            }   else {
+                holder.labelColor.visibility = View.GONE
+            }
 
+            holder.tvCardName.text = model.name
             holder.itemView.setOnClickListener {
                 if(onClickListener != null) {
                     onClickListener!!.onClick(position)
@@ -44,5 +52,6 @@ open class CardListItemsAdapter(
     class MyViewHolder(binding: ItemCardBinding): RecyclerView.ViewHolder(binding.root){
         val tvCardName = binding.tvCardName
         val tvMemberName = binding.tvMemberName
+        val labelColor = binding.viewLabelColor
     }
 }
