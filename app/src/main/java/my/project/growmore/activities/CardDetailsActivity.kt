@@ -3,12 +3,14 @@ package my.project.growmore.activities
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import my.project.growmore.R
 import my.project.growmore.databinding.ActivityCardDetailsBinding
+import my.project.growmore.dialogs.LabelColorListDialog
 import my.project.growmore.firebase.FireStoreClass
 import my.project.growmore.models.Board
 import my.project.growmore.models.Card
@@ -21,6 +23,7 @@ class CardDetailsActivity : BaseActivity() {
     private lateinit var mBoardDetails: Board
     private var mTaskListPosition = -1
     private var mCardPosition = -1
+    private var mSelectedColor = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCardDetailsBinding.inflate(layoutInflater)
@@ -37,7 +40,9 @@ class CardDetailsActivity : BaseActivity() {
                 showToast("Please enter a card name.", this@CardDetailsActivity)
             }
         }
-
+        binding?.tvSelectLabelColor?.setOnClickListener {
+            labelColorListDialog()
+        }
     }
 
 
@@ -94,7 +99,8 @@ class CardDetailsActivity : BaseActivity() {
         val card = Card(
             binding?.etNameCardDetails?.text?.toString()!!,
             mBoardDetails.taskList[mTaskListPosition].cards[mCardPosition].createdBy,
-            mBoardDetails.taskList[mTaskListPosition].cards[mCardPosition].assignedTo
+            mBoardDetails.taskList[mTaskListPosition].cards[mCardPosition].assignedTo,
+            mSelectedColor
         )
         mBoardDetails.taskList[mTaskListPosition].cards[mCardPosition] = card
 
@@ -132,5 +138,36 @@ class CardDetailsActivity : BaseActivity() {
         val alertDialog: AlertDialog = builder.create()
         alertDialog.setCancelable(false)
         alertDialog.show()
+    }
+
+    private fun colorList(): ArrayList<String> {
+        val colorsList: ArrayList<String> = ArrayList()
+        colorsList.add("#FC4C02")
+        colorsList.add("#005066")
+        colorsList.add("#006400")
+        colorsList.add("#a4161a")
+        colorsList.add("#3A136F")
+        colorsList.add("#191970")
+        colorsList.add("#13232c")
+        return colorsList
+    }
+
+    private fun setColor() {
+        binding?.tvSelectLabelColor?.text = ""
+        binding?.tvSelectLabelColor?.setBackgroundColor(Color.parseColor(mSelectedColor))
+    }
+
+    private fun labelColorListDialog() {
+        val colorsList: ArrayList<String> = colorList()
+        val listDialog = object : LabelColorListDialog(
+            this,
+            colorsList,
+            resources.getString(R.string.str_select_label_color)) {
+            override fun onItemSelected(color: String) {
+                mSelectedColor = color
+                setColor()
+            }
+        }
+        listDialog.show()
     }
 }

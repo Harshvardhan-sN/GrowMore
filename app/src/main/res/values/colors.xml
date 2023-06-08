@@ -39,4 +39,13 @@
     <color name="mGreen">#74c69d</color>
     <color name="mRed">#da2c38</color>
     <color name="mGrey">#ced4da</color>
+
+    <!--My Shades For Cards Menu-->
+    <color name="mCard_HalloweenOrange">#FC4C02</color>
+    <color name="mCard_DeepLagoon">#005066</color>
+    <color name="mCard_ForestGreen">#006400</color>
+    <color name="mCard_Carmine">#a4161a</color>
+    <color name="mCard_DeepPurple">#3A136F</color>
+    <color name="mCard_MidnightBlue">#191970</color>
+    <color name="mCard_BlackCurrant">#13232c</color>
 </resources>
