@@ -1,6 +1,8 @@
 package my.project.growmore.adapters
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.content.ClipData.Item
 import android.content.Context
 import android.content.res.Resources
 import android.view.LayoutInflater
@@ -8,16 +10,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import my.project.growmore.R
 import my.project.growmore.activities.TaskListActivity
 import my.project.growmore.databinding.TaskListBinding
 import my.project.growmore.models.Task
+import java.util.Collections
 
 open class TaskListItemAdapter(private val context: Context,
                                private var list: ArrayList<Task>):
     RecyclerView.Adapter<TaskListItemAdapter.MyViewHolder>() {
+
+    private var mPositionDraggedFrom = -1
+    private var mPositionDraggedTo = -1
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.task_list, parent, false)
@@ -35,7 +43,7 @@ open class TaskListItemAdapter(private val context: Context,
         return list.size
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, @SuppressLint("RecyclerView") position: Int) {
         val model = list[position]
         if(position == list.size - 1){
             holder.tvAddTaskList.visibility = View.VISIBLE
@@ -123,6 +131,52 @@ open class TaskListItemAdapter(private val context: Context,
                 }
             }
         )
+
+        val dividerItemDecoration = DividerItemDecoration(context,
+            DividerItemDecoration.VERTICAL)
+        holder.rvCardList.addItemDecoration(dividerItemDecoration)
+
+        val helper = ItemTouchHelper(
+            object: ItemTouchHelper.SimpleCallback(
+                ItemTouchHelper.UP or ItemTouchHelper.DOWN, 0
+            ) {
+                override fun onMove(
+                    recyclerView: RecyclerView,
+                    dragged: RecyclerView.ViewHolder,
+                    target: RecyclerView.ViewHolder
+                ): Boolean {
+                    val draggedPosition = dragged.adapterPosition
+                    val targetPosition = target.adapterPosition
+
+                    if(mPositionDraggedFrom == -1) {
+                        mPositionDraggedFrom = draggedPosition
+                    }
+                    mPositionDraggedTo = targetPosition
+                    Collections.swap(list[position].cards
+                        , draggedPosition, targetPosition)
+                    adapter.notifyItemMoved(draggedPosition, targetPosition)
+                    return false
+                }
+
+                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                }
+
+                override fun clearView(
+                    recyclerView: RecyclerView,
+                    viewHolder: RecyclerView.ViewHolder
+                ) {
+                    if(mPositionDraggedFrom != -1 && mPositionDraggedTo != -1
+                        && mPositionDraggedFrom != mPositionDraggedTo) {
+                        (context as TaskListActivity).updateCardsInTaskList(
+                            position, list[position].cards)
+                    }
+                    mPositionDraggedFrom = -1
+                    mPositionDraggedTo = -1
+                    super.clearView(recyclerView, viewHolder)
+                }
+            }
+        )
+        helper.attachToRecyclerView(holder.rvCardList)
     }
 
     private fun alertDialogForDeleteList(position: Int, title: String) {

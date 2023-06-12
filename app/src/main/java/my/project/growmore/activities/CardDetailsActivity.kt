@@ -283,7 +283,7 @@ class CardDetailsActivity : BaseActivity() {
             binding?.rvSelectedMembersList?.visibility = View.VISIBLE
 
             binding?.rvSelectedMembersList?.layoutManager = GridLayoutManager(
-                this@CardDetailsActivity, 6
+                this@CardDetailsActivity, 5
             )
             val adapter = CardMemberListAdapter(
                 this@CardDetailsActivity, selectedMemberList, true)
