@@ -2,14 +2,14 @@ package my.project.growmore.activities
 
 import android.app.Activity
 import android.app.AlertDialog
-import android.content.Intent
+import android.app.DatePickerDialog
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
+import android.icu.text.SimpleDateFormat
+import android.icu.util.Calendar
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.GridLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import my.project.growmore.R
 import my.project.growmore.adapters.CardMemberListAdapter
@@ -23,6 +23,8 @@ import my.project.growmore.models.SelectedMembers
 import my.project.growmore.models.Task
 import my.project.growmore.models.User
 import my.project.growmore.utils.Constants
+import java.util.Date
+import java.util.Locale
 
 class CardDetailsActivity : BaseActivity() {
     private var binding: ActivityCardDetailsBinding? = null
@@ -32,6 +34,7 @@ class CardDetailsActivity : BaseActivity() {
     private var mCardPosition = -1
     private var mSelectedColor = ""
     private lateinit var mMembersDetailedList: ArrayList<User>
+    private var mSelectedDueDate: Long = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCardDetailsBinding.inflate(layoutInflater)
@@ -59,6 +62,17 @@ class CardDetailsActivity : BaseActivity() {
             itemAddMemberListDialog()
         }
         setUpSelectedMemberList()
+        mSelectedDueDate = mBoardDetails
+            .taskList[mTaskListPosition]
+            .cards[mCardPosition].dueDate
+        if(mSelectedDueDate > 0) {
+            val simpleDateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH)
+            val selectedDate = simpleDateFormat.format(Date(mSelectedDueDate))
+            binding?.tvSelectDueDate?.text = selectedDate
+        }
+        binding?.tvSelectDueDate?.setOnClickListener {
+            showDatePicker()
+        }
     }
 
 
@@ -121,7 +135,8 @@ class CardDetailsActivity : BaseActivity() {
             binding?.etNameCardDetails?.text?.toString()!!,
             mBoardDetails.taskList[mTaskListPosition].cards[mCardPosition].createdBy,
             mBoardDetails.taskList[mTaskListPosition].cards[mCardPosition].assignedTo,
-            mSelectedColor
+            mSelectedColor,
+            mSelectedDueDate
         )
 
         val taskList: ArrayList<Task> = mBoardDetails.taskList
@@ -199,7 +214,7 @@ class CardDetailsActivity : BaseActivity() {
     }
 
     private fun itemAddMemberListDialog() {
-        var cardAssignedMemberList = mBoardDetails.taskList[mTaskListPosition].cards[mCardPosition].assignedTo
+        val cardAssignedMemberList = mBoardDetails.taskList[mTaskListPosition].cards[mCardPosition].assignedTo
         if(cardAssignedMemberList.size > 0) {
             for(i in mMembersDetailedList.indices) {
                 for(j in cardAssignedMemberList) {
@@ -271,7 +286,7 @@ class CardDetailsActivity : BaseActivity() {
                 this@CardDetailsActivity, 6
             )
             val adapter = CardMemberListAdapter(
-                this@CardDetailsActivity, selectedMemberList)
+                this@CardDetailsActivity, selectedMemberList, true)
             binding?.rvSelectedMembersList?.adapter = adapter
             adapter.setOnClickListener(
                 object: CardMemberListAdapter.OnClickListener {
@@ -284,5 +299,25 @@ class CardDetailsActivity : BaseActivity() {
             binding?.tvSelectMembers?.visibility = View.VISIBLE
             binding?.rvSelectedMembersList?.visibility = View.GONE
         }
+    }
+    private fun showDatePicker() {
+        val c = Calendar.getInstance()
+        val year = c.get(Calendar.YEAR)
+        val month = c.get(Calendar.MONTH)
+        val day = c.get(Calendar.DAY_OF_MONTH)
+        val dpd = DatePickerDialog(
+            this,
+            DatePickerDialog.OnDateSetListener{ _, _, monthOfYear, dayOfMonth ->
+                val sDayOfMonth = if(dayOfMonth < 10) "0$dayOfMonth" else "$dayOfMonth"
+                val sMonthOfYear = if((monthOfYear + 1) < 10) "0${monthOfYear + 1}" else "${monthOfYear + 1}"
+                val selectedDate = "$sDayOfMonth/$sMonthOfYear/$year"
+                binding?.tvSelectDueDate?.text = selectedDate
+
+                val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH)
+                val theDate = sdf.parse(selectedDate)
+                mSelectedDueDate = theDate!!.time
+            }, year, month, day
+        )
+        dpd.show()
     }
 }

@@ -14,8 +14,9 @@ import my.project.growmore.models.SelectedMembers
 
 open class CardMemberListAdapter(
         private val context: Context,
-        private val list: ArrayList<SelectedMembers>
-        ): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+        private val list: ArrayList<SelectedMembers>,
+        private val assignMembers: Boolean)
+        : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
         private var onClickListener: OnClickListener? = null
 
@@ -35,7 +36,7 @@ open class CardMemberListAdapter(
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
                 val model = list[position]
                 if(holder is MyViewHolder) {
-                        if(position == list.size - 1) {
+                        if(position == list.size - 1 && assignMembers) {
                                 holder.ivAddMember.visibility = View.VISIBLE
                                 holder.ivSelectedMemberImage.visibility = View.GONE
                         } else {
