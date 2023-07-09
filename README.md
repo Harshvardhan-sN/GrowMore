@@ -64,7 +64,7 @@ https://github.com/Harshvardhan-sN/GrowMore/assets/81630801/86710e72-cedb-47db-9
 
 ## Download
 
-[Download APK]([link/to/download/apk](https://drive.google.com/file/d/1s6xgx_nmLq9MR-F-9rdiO423NQuTA_fJ/view?usp=drive_link))
+[Download APK](https://drive.google.com/file/d/1s6xgx_nmLq9MR-F-9rdiO423NQuTA_fJ/view?usp=drive_link)
 
 ## Contributing
 
