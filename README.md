@@ -49,7 +49,7 @@ Congratulations! You now have the project running on your local machine.
 
 Include screenshots or GIFs that showcase your app's user interface and key features. You can use the following format:
 
-![Screenshot 1](screenshots/screenshot1.png)
+![Screenshot 1](screenshots/intro.jpg)
 ![Screenshot 2](screenshots/screenshot2.png)
 
 ## Download
