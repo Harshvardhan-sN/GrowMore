@@ -50,7 +50,7 @@ Congratulations! You now have the project running on your local machine.
 Include screenshots or GIFs that showcase your app's user interface and key features. You can use the following format:
 
 ![Screenshot 1](screenshots/intro.jpg)
-![Screenshot 2](screenshots/screenshot2.png)
+<img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/intro.jpg" width="271" height="587">
 
 ## Download
 
