@@ -21,7 +21,14 @@ Explain how to get a copy of the project up and running on a local machine or an
 
 ### Prerequisites
 
-List any software, libraries, or dependencies that users need to have installed before they can use your app.
+| Dependency       | Version |
+| ---------------- | ------- |
+| Dependency 1     | 1.0.0   |
+| Dependency 2     | 2.3.1   |
+| Dependency 3     | 3.2.0   |
+<!-- Add more dependencies if necessary -->
+
+List any software, libraries, or dependencies that users need to have installed before they can use your app. Include the name of the dependency and the required version.
 
 ### Installation
 
