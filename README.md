@@ -49,8 +49,14 @@ Congratulations! You now have the project running on your local machine.
 
 Include screenshots or GIFs that showcase your app's user interface and key features. You can use the following format:
 
-<img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/splash.jpg" width="271" height="587">                    <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/intro.jpg" width="271" height="587"> https://github.com/Harshvardhan-sN/GrowMore/assets/81630801/86710e72-cedb-47db-9727-88caa32c1ec2
+                    
 
+
+<div style="display: flex;">
+  <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/splash.jpg" width="271" height="587">
+  <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/intro.jpg" width="271" height="587"> 
+  https://github.com/Harshvardhan-sN/GrowMore/assets/81630801/86710e72-cedb-47db-9727-88caa32c1ec2
+</div>
 
 
 
