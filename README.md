@@ -73,3 +73,10 @@ I would like to acknowledge the following resources and tools that contributed t
 - **AI Tools**: I would like to express my gratitude to AI tools like _ChatGPT_ and _Bard_, which aided in various aspects of the project. These tools played a significant role in enhancing the functionality and user experience of the app.
 
 I am grateful for the knowledge, support, and resources provided by these platforms, tools, and communities throughout the development process.
+
+## Contacts
+
+For any inquiries or collaboration opportunities, feel free to reach out to me:
+
+- Email: negiharsh12@gmail.com
+- LinkedIn: [Harshvardhan Singh Negi](https://www.linkedin.com/in/harshvardhan-singh-negi-100b2a197/)
