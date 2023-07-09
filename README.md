@@ -51,7 +51,6 @@ Include screenshots or GIFs that showcase your app's user interface and key feat
 
 ![Screenshot 1](screenshots/screenshot1.png)
 ![Screenshot 2](screenshots/screenshot2.png)
-https://github.com/Harshvardhan-sN/GrowMore/assets/81630801/73763506-c150-4dc5-80c2-e9b940ec081f
 
 ## Download
 
