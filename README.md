@@ -28,8 +28,8 @@ Before getting started, ensure that you have the following:
 
 ### Installation
 
-1. Clone the repository to your local machine using the following command:
-   git clone https://github.com/Harshvardhan-sN/GrowMore.git
+1. Clone the repository to your local machine using the following command: <br>
+```git clone https://github.com/Harshvardhan-sN/GrowMore.git```
 
 Alternatively, you can download the repository as a ZIP file and extract it.
 
