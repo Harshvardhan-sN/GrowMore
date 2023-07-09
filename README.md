@@ -18,14 +18,14 @@ GrowMore is a project management Android app inspired by Trello. It provides a f
 
 To get a copy of the project up and running on your local machine, follow these steps:
 
-## Prerequisites
+### Prerequisites
 
 Before getting started, ensure that you have the following:
 
 - [Android Studio](https://developer.android.com/studio) installed on your computer.
 - Basic knowledge of Android development.
 
-## Installation 
+### Installation 
 
 1. Clone the repository to your local machine using the following command: <br>
 ```git clone https://github.com/Harshvardhan-sN/GrowMore.git```
