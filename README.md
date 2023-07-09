@@ -7,7 +7,7 @@ GrowMore is a project management Android app inspired by Trello. It provides a f
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-- [🖥️ Technology](#technology)
+- [Technology](#technology)
 - [Screenshots](#screenshots)
 - [Download](#download)
 - [Acknowledgements](#acknowledgements)
@@ -41,7 +41,7 @@ Alternatively, you can download the repository as a ZIP file and extract it.
 
 6. Click on the "Run" button in Android Studio to deploy the app on your device or emulator.
 
-### 🖥️ Technology
+### Technology
 - Kotlin language
 - xml language
 - Android Studio
