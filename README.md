@@ -64,9 +64,7 @@ https://github.com/Harshvardhan-sN/GrowMore/assets/81630801/86710e72-cedb-47db-9
 
 ## Download
 
-Provide a link to download the APK file of your app. You can host the file on a cloud storage service like Google Drive, Dropbox, or GitHub Releases. You can use the following format:
-
-[Download APK](link/to/download/apk)
+[Download APK]([link/to/download/apk](https://drive.google.com/file/d/1s6xgx_nmLq9MR-F-9rdiO423NQuTA_fJ/view?usp=drive_link))
 
 ## Contributing
 
