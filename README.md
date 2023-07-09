@@ -42,7 +42,7 @@ Alternatively, you can download the repository as a ZIP file and extract it.
 
 ## Technology
 - Kotlin language
-- xml language
+- XML language
 - Android Studio
 - FireBase FireStore
 
