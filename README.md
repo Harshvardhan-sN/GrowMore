@@ -53,14 +53,31 @@ Include screenshots or GIFs that showcase your app's user interface and key feat
 
 
 <div style="display: flex;">
-  <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/splash.jpg" width="271" height="587">
   <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/intro.jpg" width="271" height="587"> 
+  <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/splash.jpg" width="271" height="587">
   <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/1.jpg" width="271" height="587"> 
   <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/2.jpg" width="271" height="587"> 
   <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/3.jpg" width="271" height="587"> 
 </div>
 
 https://github.com/Harshvardhan-sN/GrowMore/assets/81630801/86710e72-cedb-47db-9727-88caa32c1ec2
+
+
+<div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
+  <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/intro.jpg" width="271" height="587"> 
+  <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/splash.jpg" width="271" height="587">
+  <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/1.jpg" width="271" height="587"> 
+  <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/2.jpg" width="271" height="587"> 
+  <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/3.jpg" width="271" height="587"> 
+
+  <div style="text-align: center; margin-top: 20px;">
+    <video controls width="600">
+      <source src="[https://example.com/video.mp4](https://github.com/Harshvardhan-sN/GrowMore/assets/81630801/86710e72-cedb-47db-9727-88caa32c1ec2)" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+
 
 ## Download
 
