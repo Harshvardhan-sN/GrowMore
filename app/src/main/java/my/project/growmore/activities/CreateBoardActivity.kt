@@ -15,11 +15,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import com.bumptech.glide.Glide
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import com.karumi.dexter.Dexter
-import com.karumi.dexter.MultiplePermissionsReport
-import com.karumi.dexter.PermissionToken
-import com.karumi.dexter.listener.PermissionRequest
-import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import my.project.growmore.R
 import my.project.growmore.databinding.ActivityCreateBoardBinding
 import my.project.growmore.firebase.FireStoreClass

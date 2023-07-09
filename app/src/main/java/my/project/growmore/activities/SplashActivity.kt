@@ -13,11 +13,6 @@ import android.os.Handler
 import android.provider.Settings
 import android.view.WindowManager
 import android.widget.Toast
-import com.karumi.dexter.Dexter
-import com.karumi.dexter.MultiplePermissionsReport
-import com.karumi.dexter.PermissionToken
-import com.karumi.dexter.listener.PermissionRequest
-import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import my.project.growmore.databinding.ActivitySplashBinding
 import my.project.growmore.firebase.FireStoreClass
 

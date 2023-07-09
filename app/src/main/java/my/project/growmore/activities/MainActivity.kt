@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.core.view.GravityCompat
@@ -97,6 +98,9 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        return super.onCreateOptionsMenu(menu)
+    }
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.nav_my_profile ->{
@@ -112,6 +116,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             }
         }
         binding?.drawerLayout?.closeDrawer(GravityCompat.START)
+        item.isCheckable = false
         return true
     }
 
