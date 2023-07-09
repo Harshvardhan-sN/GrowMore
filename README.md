@@ -9,6 +9,7 @@ GrowMore is a project management Android app inspired by Trello. It provides a f
   - [Installation](#installation)
 - [Technology](#technology)
 - [Screenshots](#screenshots)
+- [App Preview](#app-review)
 - [Download](#download)
 - [Acknowledgements](#acknowledgements)
 - [Contact](#contact)
@@ -56,6 +57,8 @@ Alternatively, you can download the repository as a ZIP file and extract it.
   <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/2.jpg" width="271" height="587"> 
   <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/3.jpg" width="271" height="587"> 
 </div>
+
+## App Preview
 
 https://github.com/Harshvardhan-sN/GrowMore/assets/81630801/86710e72-cedb-47db-9727-88caa32c1ec2
 
