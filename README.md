@@ -11,8 +11,6 @@ GrowMore is a project management Android app inspired by Trello. It provides a f
 - [Screenshots](#screenshots)
 - [App Preview](#app-preview)
 - [Download](#download)
-- [Acknowledgements](#acknowledgements)
-- [Contact](#contact)
 
 ## Getting Started
 
@@ -65,22 +63,3 @@ https://github.com/Harshvardhan-sN/GrowMore/assets/81630801/86710e72-cedb-47db-9
 
 ## Download
 To start using the app, you can download the APK file: <a href="https://drive.google.com/file/d/1s6xgx_nmLq9MR-F-9rdiO423NQuTA_fJ/view?usp=drive_link" target="_blank">Download APK</a>
-
-## Acknowledgements
-
-I would like to acknowledge the following resources and tools that contributed to the development of this app:
-
-- **Udemy Course**: I gained valuable knowledge and insights from the Udemy course *The Complete Android 12 & Kotlin Development Masterclass* by Instructor *Denis Panjuta*. It provided guidance and inspiration for building this app.
-
-- **Websites**: Websites like _Stack Overflow_ and _GeeksForGeeks_ were instrumental in helping me troubleshoot issues and find solutions. The developer community on these platforms provided valuable support and resources.
-
-- **AI Tools**: I would like to express my gratitude to AI tools like _ChatGPT_ and _Bard_, which aided in various aspects of the project. These tools played a significant role in enhancing the functionality and user experience of the app.
-
-I am grateful for the knowledge, support, and resources provided by these platforms, tools, and communities throughout the development process.
-
-## Contact
-
-For any inquiries or collaboration opportunities, feel free to reach out to me:
-
-- Email: negiharsh12@gmail.com
-- LinkedIn: [Harshvardhan Singh Negi](https://www.linkedin.com/in/harshvardhan-singh-negi-100b2a197/)
