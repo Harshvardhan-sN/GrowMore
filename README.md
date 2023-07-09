@@ -57,7 +57,7 @@ https://github.com/Harshvardhan-sN/GrowMore/assets/81630801/86710e72-cedb-47db-9
 ## Download
 To start using the app, you can download the APK file: <a href="https://drive.google.com/file/d/1s6xgx_nmLq9MR-F-9rdiO423NQuTA_fJ/view?usp=drive_link" target="_blank">Download APK</a>
 
-## Acknowledgments
+## Acknowledgements
 
 I would like to acknowledge the following resources and tools that contributed to the development of this app:
 
@@ -69,7 +69,7 @@ I would like to acknowledge the following resources and tools that contributed t
 
 I am grateful for the knowledge, support, and resources provided by these platforms, tools, and communities throughout the development process.
 
-## Contacts
+## Contact
 
 For any inquiries or collaboration opportunities, feel free to reach out to me:
 
