@@ -40,7 +40,6 @@ Alternatively, you can download the repository as a ZIP file and extract it.
 
 6. Click on the "Run" button in Android Studio to deploy the app on your device or emulator.
 
-Congratulations! You now have the project running on your local machine.
 
 ## Screenshots
 
