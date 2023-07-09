@@ -63,8 +63,9 @@ Include screenshots or GIFs that showcase your app's user interface and key feat
 https://github.com/Harshvardhan-sN/GrowMore/assets/81630801/86710e72-cedb-47db-9727-88caa32c1ec2
 
 ## Download
-
-[Download APK](https://drive.google.com/file/d/1s6xgx_nmLq9MR-F-9rdiO423NQuTA_fJ/view?usp=drive_link)
+To start using the app, you can download the APK file:
+- **Download the app**: You can download the APK file from the following link:
+<a href="https://drive.google.com/file/d/1s6xgx_nmLq9MR-F-9rdiO423NQuTA_fJ/view?usp=drive_link" target="_blank">Download APK</a>
 
 ## Contributing
 
