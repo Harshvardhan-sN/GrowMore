@@ -17,14 +17,14 @@ GrowMore is a project management Android app inspired by Trello. It provides a f
 
 To get a copy of the project up and running on your local machine, follow these steps:
 
-### Prerequisites
+## Prerequisites
 
 Before getting started, ensure that you have the following:
 
 - [Android Studio](https://developer.android.com/studio) installed on your computer.
 - Basic knowledge of Android development.
 
-### Installation 
+## Installation 
 
 1. Clone the repository to your local machine using the following command: <br>
 ```git clone https://github.com/Harshvardhan-sN/GrowMore.git```
@@ -41,14 +41,13 @@ Alternatively, you can download the repository as a ZIP file and extract it.
 
 6. Click on the "Run" button in Android Studio to deploy the app on your device or emulator.
 
-### Technology
+## Technology
 - Kotlin language
 - xml language
 - Android Studio
 - FireBase FireStore
 
-### Screenshots
-
+## Screenshots
 
 <div style="display: flex;">
   <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/intro.jpg" width="271" height="587"> 
@@ -60,10 +59,10 @@ Alternatively, you can download the repository as a ZIP file and extract it.
 
 https://github.com/Harshvardhan-sN/GrowMore/assets/81630801/86710e72-cedb-47db-9727-88caa32c1ec2
 
-### Download
+## Download
 To start using the app, you can download the APK file: <a href="https://drive.google.com/file/d/1s6xgx_nmLq9MR-F-9rdiO423NQuTA_fJ/view?usp=drive_link" target="_blank">Download APK</a>
 
-### Acknowledgements
+## Acknowledgements
 
 I would like to acknowledge the following resources and tools that contributed to the development of this app:
 
@@ -75,7 +74,7 @@ I would like to acknowledge the following resources and tools that contributed t
 
 I am grateful for the knowledge, support, and resources provided by these platforms, tools, and communities throughout the development process.
 
-### Contact
+## Contact
 
 For any inquiries or collaboration opportunities, feel free to reach out to me:
 
