@@ -51,12 +51,13 @@ Alternatively, you can download the repository as a ZIP file and extract it.
 ## Screenshots
 
 <div style="display: flex;">
-  <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/intro.jpg" width="271" height="587"> 
-  <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/splash.jpg" width="271" height="587">
-  <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/1.jpg" width="271" height="587"> 
-  <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/2.jpg" width="271" height="587"> 
-  <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/3.jpg" width="271" height="587"> 
+  <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/intro.jpg" width="271" height="587" style="border: 1px solid #ddd; padding: 5px;">
+  <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/splash.jpg" width="271" height="587" style="border: 1px solid #ddd; padding: 5px;">
+  <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/1.jpg" width="271" height="587" style="border: 1px solid #ddd; padding: 5px;">
+  <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/2.jpg" width="271" height="587" style="border: 1px solid #ddd; padding: 5px;">
+  <img src="https://github.com/Harshvardhan-sN/GrowMore/blob/main/screenshots/3.jpg" width="271" height="587" style="border: 1px solid #ddd; padding: 5px;">
 </div>
+
 
 ## App Preview
 
