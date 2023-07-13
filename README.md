@@ -62,4 +62,4 @@ Alternatively, you can download the repository as a ZIP file and extract it.
 https://github.com/Harshvardhan-sN/GrowMore/assets/81630801/86710e72-cedb-47db-9727-88caa32c1ec2
 
 ## Download
-To start using the app, you can download the APK file: <a href="https://drive.google.com/file/d/1s6xgx_nmLq9MR-F-9rdiO423NQuTA_fJ/view?usp=drive_link" target="_blank">Download APK</a>
+To start using the app, you can download the APK file: <a href="https://drive.google.com/file/d/1cL1BNg6OnD4w-inEUF9kUxHhURfs_-82/view?usp=drive_link" target="_blank">Download APK</a>
