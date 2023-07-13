@@ -48,4 +48,7 @@
     <color name="mCard_DeepPurple">#3A136F</color>
     <color name="mCard_MidnightBlue">#191970</color>
     <color name="mCard_BlackCurrant">#13232c</color>
+
+    <color name="splash1">#14746f</color>
+    <color name="splash2">#036666</color>
 </resources>

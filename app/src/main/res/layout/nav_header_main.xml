@@ -4,7 +4,7 @@
     android:layout_height="@dimen/height_of_nav_main"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/ic_splash_background"
+    android:background="@drawable/blur_fieldtexture"
     android:gravity="bottom"
     android:orientation="vertical"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
@@ -15,7 +15,6 @@
         android:layout_height="@dimen/nav_image_size"
         android:layout_marginStart="@dimen/nav_content_margin_StartEnd"
         android:layout_marginEnd="@dimen/nav_content_margin_StartEnd"
-        app:civ_border_color="@color/l1"
         app:civ_border_width="@dimen/nav_image_circular_border_width"
         android:contentDescription="@string/image_contentDescription"
         android:src="@drawable/ic_user_holder" />
@@ -30,6 +29,7 @@
         android:layout_marginBottom="@dimen/nav_content_margin_bottom"
         android:textColor="@color/black"
         android:textSize="@dimen/nav_user_name_text_size"
+        android:textStyle="bold"
         tools:text = "UserName" />
     
     <View
