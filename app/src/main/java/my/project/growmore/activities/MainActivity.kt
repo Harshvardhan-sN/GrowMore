@@ -10,6 +10,8 @@ import android.view.View
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import my.project.growmore.R
@@ -109,18 +111,19 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             }
             R.id.nav_sign_out ->{
                 FirebaseAuth.getInstance().signOut()
-                val intent = Intent(this, IntroActivity::class.java)
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-                startActivity(intent)
-                finish()
+                val googleSignInClient = GoogleSignIn.getClient(this, GoogleSignInOptions.DEFAULT_SIGN_IN)
+                googleSignInClient.signOut().addOnCompleteListener(this) {
+                    val intent = Intent(this, IntroActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
+                    finish()
+                }
             }
         }
         binding?.drawerLayout?.closeDrawer(GravityCompat.START)
         item.isCheckable = false
         return true
     }
-
-
 
     fun updateNavigationUserDetails(user: User, readBoardList: Boolean){
         userName = user.name

@@ -86,7 +86,6 @@ class CreateBoardActivity : BaseActivity() {
             userName,
             assignedUserArrayList
         )
-
         FireStoreClass().createBoard(this, board)
     }
 

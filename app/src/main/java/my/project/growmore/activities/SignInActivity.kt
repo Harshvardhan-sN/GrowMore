@@ -4,7 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
 import my.project.growmore.R
 import my.project.growmore.databinding.ActivitySignInBinding
 import my.project.growmore.firebase.FireStoreClass
@@ -12,7 +17,7 @@ import my.project.growmore.models.User
 
 class SignInActivity : BaseActivity() {
     private var binding: ActivitySignInBinding? = null
-
+    private val RC_SIGN_IN = 123
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
@@ -36,6 +41,7 @@ class SignInActivity : BaseActivity() {
             binding?.btnTextView?.visibility = View.GONE
             signInAuth()
         }
+        initGoogleSignIn()
     }
 
     private fun signInAuth(){
@@ -80,4 +86,67 @@ class SignInActivity : BaseActivity() {
         startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
+
+    // Function to initialize Google Sign-In
+    private fun initGoogleSignIn() {
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+
+        val googleSignInClient = GoogleSignIn.getClient(this, gso)
+
+        // Set an OnClickListener for your Google Sign-In button
+        binding?.google?.setOnClickListener {
+            startGoogleSignIn(googleSignInClient)
+        }
+    }
+
+    // Function to start Google Sign-In
+    private fun startGoogleSignIn(googleSignInClient: GoogleSignInClient) {
+        val signInIntent = googleSignInClient.signInIntent
+        startActivityForResult(signInIntent, RC_SIGN_IN)
+    }
+
+    // Function to handle the result of Google Sign-In
+    private fun handleGoogleSignInResult(data: Intent?) {
+        val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+        try {
+            val account = task.getResult(ApiException::class.java)
+            val credential = GoogleAuthProvider.getCredential(account.idToken, null)
+
+            // Sign in with Firebase using the Google credentials
+            FirebaseAuth.getInstance().signInWithCredential(credential)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        onGoogleSignInSuccess()
+                    } else {
+                        onGoogleSignInFailure()
+                    }
+                }
+        } catch (e: ApiException) {
+            onGoogleSignInFailure()
+        }
+    }
+
+    // Function to handle a successful Google Sign-In
+    private fun onGoogleSignInSuccess() {
+        val user = FirebaseAuth.getInstance().currentUser
+        startActivity(Intent(this, MainActivity::class.java))
+    }
+
+    // Function to handle a failed Google Sign-In
+    private fun onGoogleSignInFailure() {
+        showError("Failed")
+    }
+
+    // Handle the result of an activity, such as Google Sign-In
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == RC_SIGN_IN) {
+            handleGoogleSignInResult(data)
+        }
+    }
+
 }

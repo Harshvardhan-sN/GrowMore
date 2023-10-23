@@ -127,6 +127,13 @@
                 />
         </LinearLayout>
 
+
+        <Button
+            android:id="@+id/google"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Google" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

@@ -7,14 +7,14 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:353022296623:android:e0332bcebe66b9d0747cda",
+        "mobilesdk_app_id": "1:353022296623:android:7812d546cbea2d9d747cda",
         "android_client_info": {
-          "package_name": "my.project.growmore"
+          "package_name": "com.example.loginsignup"
         }
       },
       "oauth_client": [
         {
-          "client_id": "353022296623-nphv4qflsl0nruc78deqjuo9oamiif0h.apps.googleusercontent.com",
+          "client_id": "353022296623-7ig8mm0hfh0lt56ppqunrjod1tk2sojs.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,7 +27,44 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "353022296623-nphv4qflsl0nruc78deqjuo9oamiif0h.apps.googleusercontent.com",
+              "client_id": "353022296623-7ig8mm0hfh0lt56ppqunrjod1tk2sojs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353022296623:android:e0332bcebe66b9d0747cda",
+        "android_client_info": {
+          "package_name": "my.project.growmore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "353022296623-otkqj1fro742rd81c48svad2kpk6iod7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "my.project.growmore",
+            "certificate_hash": "2dd78faf45d52f1ccb2ebdba734af9f7a1913683"
+          }
+        },
+        {
+          "client_id": "353022296623-7ig8mm0hfh0lt56ppqunrjod1tk2sojs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1p28a86r1R-Vpc62oNI6-vuraKAugu3U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "353022296623-7ig8mm0hfh0lt56ppqunrjod1tk2sojs.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
